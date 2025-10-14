@@ -6,6 +6,7 @@
 
 from collections import deque
 
+
 class StackEditor:
     """
     This class allows us to enter text and undo or redo these entries
@@ -13,37 +14,36 @@ class StackEditor:
                  redo_stack: the deque for undo actions
                  current_text: the text string to mainpulate undo/redo
     """
-
-
     def __init__(self):
         self.undo_stack = deque()
         self.redo_stack = deque()
         self.current_text = ""
-    
+
     def type_text(self, text):
         """
-        function to add text for us to undo/redo when text is entered, it clears the 
-        redo deque
-        :params: text: str - a text string to manipulate. 
+        function to add text for us to undo/redo when text is entered,
+        it clears the redo deque
+        :params: text: str - a text string to manipulate.
         """
         self.undo_stack.append(self.current_text)
         self.current_text += text
         self.redo_stack.clear()
-    
+
     def undo(self):
         """
-        Implments the undo action by checking if there is something in the undo deque,
-        then adds current text to the redo stack, and removes the last item in undo deque,
-        clearing the last item.
+        Implments the undo action by checking if there is something
+        in the undo deque, then adds current text to the redo stack,
+        and removes the last item in undo deque, clearing the last item.
         """
         if self.undo_stack:
             self.redo_stack.append(self.current_text)
             self.current_text = self.undo_stack.pop()
-    
+
     def redo(self):
         """
-        Implments the redo action by checking if there is something in the redo deque,
-        then adds the redo stack to current text, and removes the last item in redo deque,
+        Implments the redo action by checking if there is
+        something in the redo deque, then adds the redo stack to current text,
+        and removes the last item in redo deque,
         clearing the last item.
         """
         if self.redo_stack:
@@ -53,8 +53,7 @@ class StackEditor:
     def user_interface(self):
         """
             Helper function to interact with stacks of text to redo/undo
-            :params: Student list object
-            :return: None, Uses all helper functions to interact with student list
+            :return: None, Uses helper functions to interact with student list
         """
         # Main program loop - continues until user chooses to exit
         while True:
@@ -95,7 +94,7 @@ def main():
     DEBUG = False
     stack = StackEditor()
 
-    if DEBUG == True:
+    if DEBUG:
         print("Beginning Text:")
         stack.type_text("Entry 1")
         stack.type_text(" Entry 2")
