@@ -1,0 +1,14 @@
+ID,Name,Age,Salary,Department
+1,Alice,25,50000,HR
+2,Bob,NaN,55000,Engineering
+3,Carol,30,NaN,HR
+4,Dave,29,70000,Engineering
+5,Eve,NaN,60000,Marketing
+6,Frank,28,60000,Marketing
+7,Alice,25,50000,HR
+8,Grace,31,75000,HR
+9,Eva,33,60000,Marketing
+4,Dave,29,70000,Engineering
+10,Mayank,45,89000,HR
+11,Rob,20,50000,Business
+12,Robert,22,64598,HR
